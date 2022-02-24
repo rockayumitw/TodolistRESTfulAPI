@@ -37,7 +37,7 @@ const requestListener = (req, res) => {
         }));
         res.end(); // 送出
         // https://localhost:559/
-    } else if (req.url == '/todos' && req.method == 'POST') {
+    } else if (req.url == '/todos' && req.method == 'POST') { // 新增
         // body累加完最後要輸出的結果
         req.on('end', () => {
             // 異常判斷
@@ -67,7 +67,7 @@ const requestListener = (req, res) => {
                 errHandle(res, headers);
             }
         });
-    } else if (req.url == '/todos' && req.method == "DELETE") {
+    } else if (req.url == '/todos' && req.method == "DELETE") { // 全部刪除
         console.log('全部')
         try{
             todos.length = 0;
@@ -82,7 +82,7 @@ const requestListener = (req, res) => {
             console.log(error + ':程式碼錯誤')
             errHandle(res, headers);
         }
-    } else if(req.url.startsWith("/todos/") && req.method =="DELETE") {
+    } else if(req.url.startsWith("/todos/") && req.method =="DELETE") { // 單筆刪除
         console.log('單筆')
         const id =  req.url.split('/').pop();
         const index = todos.findIndex(el => el.id == id);
@@ -99,9 +99,7 @@ const requestListener = (req, res) => {
         } else {
             errHandle(res, headers);
         }
-
-        
-    } else if(req.url.startsWith("/todos/") && req.method =="PATCH") {
+    } else if(req.url.startsWith("/todos/") && req.method =="PATCH") { // 單筆編輯
         req.on('end', () => {
             try {
                 const todo = JSON.parse(body).title;
@@ -122,9 +120,26 @@ const requestListener = (req, res) => {
                 errHandle(res, headers);
             }
         })
-        
-    }
-    else if(req.method == "OPTIONS") { // prelight請求
+    } else if(req.url.startsWith("/todos/") && req.method =="GET") { // 取得單筆
+        req.on('end', () => {
+            try {
+                const id = req.url.split('/').pop();
+                const index = todos.findIndex(el => el.id == id);
+                if (index !== -1) {
+                    res.writeHead(200, headers);
+                    res.write(JSON.stringify({
+                        "status": "success",
+                        "data": todos[index],
+                    }));
+                    res.end();
+                } else {
+                    errHandle(res, headers);
+                }
+            } catch {
+                errHandle(res, headers);
+            }
+        })
+    } else if(req.method == "OPTIONS") { // prelight請求
         res.writeHead(200, headers);
         res.end();
     } else {
