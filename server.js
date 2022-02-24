@@ -139,4 +139,4 @@ const requestListener = (req, res) => {
 
 // 帶函式監聽進去: requestListener
 const server = http.createServer(requestListener); // run server
-server.listen(3005);
+server.listen(process.env.PORT || 3005);
