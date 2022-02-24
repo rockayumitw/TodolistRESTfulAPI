@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "e3d3da1b-97c5-4313-bcff-a7c84cf71fc3",
+		"name": "todolist -heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "取得所有代辦",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://arcane-reaches-18746.herokuapp.com/todos",
+					"protocol": "https",
+					"host": [
+						"arcane-reaches-18746",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增單筆代辦事項",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"我一定要學會後端!!!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://arcane-reaches-18746.herokuapp.com/todos",
+					"protocol": "https",
+					"host": [
+						"arcane-reaches-18746",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除單筆代辦事項",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://arcane-reaches-18746.herokuapp.com/todos/5a4cb1e9-15f8-48e3-984a-cd2d1f202d3d",
+					"protocol": "https",
+					"host": [
+						"arcane-reaches-18746",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos",
+						"5a4cb1e9-15f8-48e3-984a-cd2d1f202d3d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除所有代辦",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://arcane-reaches-18746.herokuapp.com/todos",
+					"protocol": "https",
+					"host": [
+						"arcane-reaches-18746",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "編輯單筆代辦事項",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"編輯代辦事項2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://arcane-reaches-18746.herokuapp.com/todos/b0291f67-4b79-454b-bade-7a6abbf97d32",
+					"protocol": "https",
+					"host": [
+						"arcane-reaches-18746",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos",
+						"b0291f67-4b79-454b-bade-7a6abbf97d32"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得單筆代辦事項",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://arcane-reaches-18746.herokuapp.com/todos/0689738b-520a-4658-b952-6c0204433ae0",
+					"protocol": "https",
+					"host": [
+						"arcane-reaches-18746",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"todos",
+						"0689738b-520a-4658-b952-6c0204433ae0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
