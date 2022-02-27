@@ -1,4 +1,4 @@
-function errorHandle(res, headers) {
+function errorHandle(res, code, message = '欄位未填寫正確, 或無此todo id', headers) {
     res.writeHead(400, headers);
         res.write(JSON.stringify({
             status: 'fail',
